@@ -1,44 +1,7 @@
 {
   "name": "FEniCS Development Environment",
-  "image": "ghcr.io/scientificcomputing/fenics-gmsh:2024-05-30",
-  
-  "containerEnv": {
-    "DISPLAY": ":0"
+  "build": {
+    "dockerfile": "Dockerfile"
   },
-  
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  
-  "mounts": [
-    "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,consistency=cached"
-  ],
-  
-  "forwardPorts": [8000],
-  
-  "portsAttributes": {
-    "8000": {
-      "label": "FEniCS Server",
-      "onAutoForward": "notify"
-    }
-  },
-  
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-toolsai.jupyter",
-        "james-yu.latex-workshop"
-      ],
-      "settings": {
-        "python.defaultInterpreterPath": "/usr/bin/python3",
-        "python.linting.enabled": true,
-        "python.linting.pylintEnabled": true,
-        "terminal.integrated.shell.linux": "/bin/bash"
-      }
-    }
-  },
-  
-  "postCreateCommand": "pip install --user ipykernel matplotlib scipy",
-  
-  "remoteUser": "root"
+  // ... resto de la configuración
 }
